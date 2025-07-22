@@ -1,12 +1,13 @@
 /* Cores principais */
 :root {
-    --primary-blue: #0066cc;
+   --primary-blue: #0066cc;
     --secondary-blue: #004499;
     --light-blue: #e6f2ff;
     --white: #ffffff;
     --gray-light: #f8f9fa;
     --gray-medium: #6c757d;
     --gray-dark: #343a40;
+
 }
 
 /* Reset e configurações gerais */
@@ -196,7 +197,7 @@ body {
     .sidebar {
         display: none;
     }
-    
+
     .main-content {
         margin-left: 0 !important;
     }
@@ -246,4 +247,3 @@ body {
 .input-mask {
     font-family: monospace;
 }
-
