@@ -30,14 +30,14 @@
                             <div class="mb-3">
                                 <label for="razao_social" class="form-label">Razão Social <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="razao_social" name="razao_social" required
-                                       value="<?php echo isset($_SESSION['old_input']['razao_social']) ? htmlspecialchars($_SESSION['old_input']['razao_social']) : htmlspecialchars($cliente['razao_social']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['razao_social'] ?? $cliente['razao_social'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="cnpj" class="form-label">CNPJ <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="cnpj" name="cnpj" required maxlength="18"
-                                       value="<?php echo isset($_SESSION['old_input']['cnpj']) ? htmlspecialchars($_SESSION['old_input']['cnpj']) : htmlspecialchars($cliente['cnpj']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['cnpj'] ?? $cliente['cnpj'] ?? ''); ?>">
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                             <div class="mb-3">
                                 <label for="nome_fantasia" class="form-label">Nome Fantasia</label>
                                 <input type="text" class="form-control" id="nome_fantasia" name="nome_fantasia"
-                                       value="<?php echo isset($_SESSION['old_input']['nome_fantasia']) ? htmlspecialchars($_SESSION['old_input']['nome_fantasia']) : htmlspecialchars($cliente['nome_fantasia']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['nome_fantasia'] ?? $cliente['nome_fantasia'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -55,7 +55,7 @@
                                 <label for="status" class="form-label">Status</label>
                                 <select class="form-select" id="status" name="status">
                                     <?php 
-                                    $statusSelecionado = isset($_SESSION['old_input']['status']) ? $_SESSION['old_input']['status'] : $cliente['status'];
+                                    $statusSelecionado = $_SESSION['old_input']['status'] ?? $cliente['status'] ?? '';
                                     ?>
                                     <option value="Ativo" <?php echo ($statusSelecionado === 'Ativo') ? 'selected' : ''; ?>>Ativo</option>
                                     <option value="Inativo" <?php echo ($statusSelecionado === 'Inativo') ? 'selected' : ''; ?>>Inativo</option>
@@ -70,14 +70,14 @@
                             <div class="mb-3">
                                 <label for="inscricao_estadual" class="form-label">Inscrição Estadual</label>
                                 <input type="text" class="form-control" id="inscricao_estadual" name="inscricao_estadual"
-                                       value="<?php echo isset($_SESSION['old_input']['inscricao_estadual']) ? htmlspecialchars($_SESSION['old_input']['inscricao_estadual']) : htmlspecialchars($cliente['inscricao_estadual']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['inscricao_estadual'] ?? $cliente['inscricao_estadual'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="inscricao_municipal" class="form-label">Inscrição Municipal</label>
                                 <input type="text" class="form-control" id="inscricao_municipal" name="inscricao_municipal"
-                                       value="<?php echo isset($_SESSION['old_input']['inscricao_municipal']) ? htmlspecialchars($_SESSION['old_input']['inscricao_municipal']) : htmlspecialchars($cliente['inscricao_municipal']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['inscricao_municipal'] ?? $cliente['inscricao_municipal'] ?? ''); ?>">
                             </div>
                         </div>
                     </div>
@@ -95,21 +95,21 @@
                             <div class="mb-3">
                                 <label for="telefone_1" class="form-label">Telefone Principal</label>
                                 <input type="text" class="form-control" id="telefone_1" name="telefone_1"
-                                       value="<?php echo isset($_SESSION['old_input']['telefone_1']) ? htmlspecialchars($_SESSION['old_input']['telefone_1']) : htmlspecialchars($cliente['telefone_1']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['telefone_1'] ?? $cliente['telefone_1'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="telefone_2" class="form-label">Telefone Secundário</label>
                                 <input type="text" class="form-control" id="telefone_2" name="telefone_2"
-                                       value="<?php echo isset($_SESSION['old_input']['telefone_2']) ? htmlspecialchars($_SESSION['old_input']['telefone_2']) : htmlspecialchars($cliente['telefone_2']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['telefone_2'] ?? $cliente['telefone_2'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email"
-                                       value="<?php echo isset($_SESSION['old_input']['email']) ? htmlspecialchars($_SESSION['old_input']['email']) : htmlspecialchars($cliente['email']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['email'] ?? $cliente['email'] ?? ''); ?>">
                             </div>
                         </div>
                     </div>
@@ -127,21 +127,21 @@
                             <div class="mb-3">
                                 <label for="cep" class="form-label">CEP</label>
                                 <input type="text" class="form-control" id="cep" name="cep" maxlength="9"
-                                       value="<?php echo isset($_SESSION['old_input']['cep']) ? htmlspecialchars($_SESSION['old_input']['cep']) : htmlspecialchars($cliente['cep']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['cep'] ?? $cliente['cep'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="mb-3">
                                 <label for="estado" class="form-label">Estado</label>
                                 <input type="text" class="form-control" id="estado" name="estado" maxlength="2"
-                                       value="<?php echo isset($_SESSION['old_input']['estado']) ? htmlspecialchars($_SESSION['old_input']['estado']) : htmlspecialchars($cliente['estado']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['estado'] ?? $cliente['estado'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="cidade" class="form-label">Cidade</label>
                                 <input type="text" class="form-control" id="cidade" name="cidade"
-                                       value="<?php echo isset($_SESSION['old_input']['cidade']) ? htmlspecialchars($_SESSION['old_input']['cidade']) : htmlspecialchars($cliente['cidade']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['cidade'] ?? $cliente['cidade'] ?? ''); ?>">
                             </div>
                         </div>
                     </div>
@@ -151,21 +151,21 @@
                             <div class="mb-3">
                                 <label for="endereco" class="form-label">Endereço</label>
                                 <input type="text" class="form-control" id="endereco" name="endereco"
-                                       value="<?php echo isset($_SESSION['old_input']['endereco']) ? htmlspecialchars($_SESSION['old_input']['endereco']) : htmlspecialchars($cliente['endereco']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['endereco'] ?? $cliente['endereco'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="mb-3">
                                 <label for="numero" class="form-label">Número</label>
                                 <input type="text" class="form-control" id="numero" name="numero"
-                                       value="<?php echo isset($_SESSION['old_input']['numero']) ? htmlspecialchars($_SESSION['old_input']['numero']) : htmlspecialchars($cliente['numero']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['numero'] ?? $cliente['numero'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="mb-3">
                                 <label for="complemento" class="form-label">Complemento</label>
                                 <input type="text" class="form-control" id="complemento" name="complemento"
-                                       value="<?php echo isset($_SESSION['old_input']['complemento']) ? htmlspecialchars($_SESSION['old_input']['complemento']) : htmlspecialchars($cliente['complemento']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['complemento'] ?? $cliente['complemento'] ?? ''); ?>">
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                             <div class="mb-3">
                                 <label for="bairro" class="form-label">Bairro</label>
                                 <input type="text" class="form-control" id="bairro" name="bairro"
-                                       value="<?php echo isset($_SESSION['old_input']['bairro']) ? htmlspecialchars($_SESSION['old_input']['bairro']) : htmlspecialchars($cliente['bairro']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['bairro'] ?? $cliente['bairro'] ?? ''); ?>">
                             </div>
                         </div>
                     </div>
@@ -193,21 +193,21 @@
                             <div class="mb-3">
                                 <label for="pessoa_contato" class="form-label">Nome</label>
                                 <input type="text" class="form-control" id="pessoa_contato" name="pessoa_contato"
-                                       value="<?php echo isset($_SESSION['old_input']['pessoa_contato']) ? htmlspecialchars($_SESSION['old_input']['pessoa_contato']) : htmlspecialchars($cliente['pessoa_contato']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['pessoa_contato'] ?? $cliente['pessoa_contato'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="telefone_contato" class="form-label">Telefone</label>
                                 <input type="text" class="form-control" id="telefone_contato" name="telefone_contato"
-                                       value="<?php echo isset($_SESSION['old_input']['telefone_contato']) ? htmlspecialchars($_SESSION['old_input']['telefone_contato']) : htmlspecialchars($cliente['telefone_contato']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['telefone_contato'] ?? $cliente['telefone_contato'] ?? ''); ?>">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="email_contato" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email_contato" name="email_contato"
-                                       value="<?php echo isset($_SESSION['old_input']['email_contato']) ? htmlspecialchars($_SESSION['old_input']['email_contato']) : htmlspecialchars($cliente['email_contato']); ?>">
+                                       value="<?php echo htmlspecialchars($_SESSION['old_input']['email_contato'] ?? $cliente['email_contato'] ?? ''); ?>">
                             </div>
                         </div>
                     </div>
@@ -222,7 +222,7 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <textarea class="form-control" id="observacoes" name="observacoes" rows="4"
-                                  placeholder="Observações gerais sobre o cliente..."><?php echo isset($_SESSION['old_input']['observacoes']) ? htmlspecialchars($_SESSION['old_input']['observacoes']) : htmlspecialchars($cliente['observacoes']); ?></textarea>
+                                  placeholder="Observações gerais sobre o cliente..."><?php echo htmlspecialchars($_SESSION['old_input']['observacoes'] ?? $cliente['observacoes'] ?? ''); ?></textarea>
                     </div>
                 </div>
             </div>
