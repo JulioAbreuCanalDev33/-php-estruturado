@@ -108,7 +108,9 @@ class AtendimentoModel {
             WHERE id_atendimento = ?";
         
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssdissssssssddsisssssssssssii",
+        // The previous type string had 31 characters, causing a mismatch with the 30 placeholders.
+        $typeString = 'ssdisisssssssddsisssssssssssi';
+        $stmt->bind_param($typeString,
             $data['solicitante'],
             $data['motivo'],
             $data['valor_patrimonial'],
