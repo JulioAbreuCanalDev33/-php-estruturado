@@ -1,5 +1,53 @@
+// Dark Mode functionality
+function initDarkMode() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply the saved theme
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Update icon based on current theme
+    updateDarkModeIcon(currentTheme);
+    
+    // Add click event listener to toggle button
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            // Apply new theme
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            // Save to localStorage
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            updateDarkModeIcon(newTheme);
+        });
+    }
+}
+
+function updateDarkModeIcon(theme) {
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    if (darkModeIcon) {
+        if (theme === 'dark') {
+            darkModeIcon.className = 'fas fa-sun';
+            document.getElementById('darkModeToggle').title = 'Alternar para modo claro';
+        } else {
+            darkModeIcon.className = 'fas fa-moon';
+            document.getElementById('darkModeToggle').title = 'Alternar para modo escuro';
+        }
+    }
+}
+
 // Máscaras de input
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize dark mode
+    initDarkMode();
+    
     // Máscara para CNPJ
     const cnpjInputs = document.querySelectorAll('.cnpj-mask');
     cnpjInputs.forEach(input => {
