@@ -36,6 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 <body class="login-page">
+    <!-- Dark Mode Toggle for Login Page -->
+    <div class="position-fixed top-0 end-0 p-3">
+        <button class="btn btn-outline-light btn-sm" id="darkModeToggle" title="Alternar modo escuro">
+            <i class="fas fa-moon" id="darkModeIcon"></i>
+        </button>
+    </div>
+    
     <div class="container">
         <div class="row justify-content-center min-vh-100 align-items-center">
             <div class="col-md-6 col-lg-4">
@@ -96,6 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/app.js"></script>
 </body>
 </html>
 
