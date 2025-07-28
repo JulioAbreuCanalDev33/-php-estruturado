@@ -247,3 +247,40 @@ body {
 .input-mask {
     font-family: monospace;
 }
+
+/* Dark mode overrides */
+body.dark-mode {
+    --primary-blue: #0066cc;
+    --secondary-blue: #004499;
+    --light-blue: #003366;
+    --white: #212529;
+    --gray-light: #121212;
+    --gray-medium: #adb5bd;
+    --gray-dark: #f8f9fa;
+
+    background-color: var(--gray-light);
+    color: var(--gray-dark);
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .card,
+body.dark-mode .table {
+    background-color: var(--white);
+    color: var(--gray-dark);
+}
+
+body.dark-mode .navbar-custom {
+    background-color: var(--primary-blue) !important;
+    border-bottom: 3px solid var(--secondary-blue);
+}
+
+body.dark-mode .navbar-custom .navbar-brand,
+body.dark-mode .navbar-custom .nav-link {
+    color: var(--gray-dark) !important;
+}
+
+body.dark-mode .table thead th {
+    background-color: var(--light-blue);
+    color: var(--gray-dark);
+    border-color: var(--primary-blue);
+}

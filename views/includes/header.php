@@ -22,6 +22,11 @@
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <button id="themeToggle" class="btn nav-link" title="Alternar tema">
+                            <i id="themeIcon" class="fas fa-moon"></i>
+                        </button>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-user me-1"></i><?php echo $_SESSION['name']; ?>

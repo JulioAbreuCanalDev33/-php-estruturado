@@ -1,5 +1,35 @@
 // Máscaras de input
 document.addEventListener('DOMContentLoaded', function() {
+    // Controle de tema (claro/escuro)
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon?.classList.remove('fa-moon');
+            themeIcon?.classList.add('fa-sun');
+        } else {
+            document.body.classList.remove('dark-mode');
+            themeIcon?.classList.remove('fa-sun');
+            themeIcon?.classList.add('fa-moon');
+        }
+    }
+
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+        applyTheme(storedTheme);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        applyTheme('dark');
+    }
+
+    themeToggle && themeToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.contains('dark-mode');
+        const newTheme = isDark ? 'light' : 'dark';
+        localStorage.setItem('theme', newTheme);
+        applyTheme(newTheme);
+    });
+
     // Máscara para CNPJ
     const cnpjInputs = document.querySelectorAll('.cnpj-mask');
     cnpjInputs.forEach(input => {
