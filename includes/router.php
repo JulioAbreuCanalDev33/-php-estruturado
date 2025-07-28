@@ -94,7 +94,7 @@ class Router {
 function route($name, $params = []) {
     // Implementação simples de rotas nomeadas
     $routes = [
-        'dashboard' => '/dashboard.php',
+        'dashboard' => '/dashboard',
         'clientes.index' => '/clientes.php',
         'clientes.create' => '/clientes.php?action=create',
         'clientes.show' => '/clientes.php?action=show',

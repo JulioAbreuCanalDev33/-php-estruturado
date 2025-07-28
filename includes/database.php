@@ -33,10 +33,15 @@ function executeQuery($sql, $params = []) {
     return $result;
 }
 
-function getLastInsertId() {
-    $conn = connectDB();
-    $id = $conn->insert_id;
-    $conn->close();
+function getLastInsertId($conn = null) {
+    // Utilize the same database connection that performed the INSERT to avoid always returning 0.
+    if ($conn instanceof mysqli) {
+        return $conn->insert_id;
+    }
+    // Fallback for backward-compatibility – create a connection only if one was not passed in.
+    $tmpConn = connectDB();
+    $id = $tmpConn->insert_id;
+    $tmpConn->close();
     return $id;
 }
 
